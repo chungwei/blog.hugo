@@ -1,3 +1,20 @@
-baseurl = "http://replace-this-with-your-hugo-site.com/"
-languageCode = "en-us"
-title = "My New Hugo Site"
+
+baseurl = "http://chungwei.github.io/"
+languageCode = "zh-CN"
+title = "Life is Good"
+toc = true
+paginate = 3
+
+[[menu.main]]
+    name = "关于我"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = 1
+    identifier = "about"
+    url = "/about/"
+
+[[menu.main]] 
+    name = "首页"
+    pre = "<i class='fa fa-road'></i>"
+    weight = 2
+    identifier = "home"
+    url = "/"
