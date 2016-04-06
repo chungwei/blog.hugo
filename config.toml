@@ -1,8 +1,6 @@
 baseurl = "http://chungwei.github.io/"
-languageCode = "zh-CN"
+languageCode = "zh"
 title = "Life is Good"
-toc = true
-paginate = 3
 
 [[menu.main]]
     name = "关于我"
