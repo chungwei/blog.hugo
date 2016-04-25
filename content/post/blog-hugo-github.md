@@ -1,12 +1,13 @@
 +++
-date = "2016-04-05T15:21:49+08:00"
+date = "2016-04-24T15:21:49+08:00"
 draft = true
 title = "使用 Hugo Github 搭建博客"
-categories = ["hugo"]
+Tags = ["github", "hugo"]
+Categories = ["Development", "GoLang2"]
 
 +++
 
-,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客
+使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客
 #### 环境介绍：
 Mac OSX 10.11.1
 

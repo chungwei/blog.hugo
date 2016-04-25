@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Development on </title>
+    <link>http://chungwei.github.io/categories/development/</link>
+    <description>Recent content in Development on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Sun, 24 Apr 2016 15:21:49 +0800</lastBuildDate>
+    <atom:link href="http://chungwei.github.io/categories/development/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>使用 Hugo Github 搭建博客</title>
+      <link>http://chungwei.github.io/post/blog-hugo-github/</link>
+      <pubDate>Sun, 24 Apr 2016 15:21:49 +0800</pubDate>
+      
+      <guid>http://chungwei.github.io/post/blog-hugo-github/</guid>
+      <description>
+
+&lt;p&gt;使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客,使用 Hugo Github 搭建博客&lt;/p&gt;
+
+&lt;h4 id=&#34;环境介绍:f891efab5b1bfc4f5ede16e75d3ca708&#34;&gt;环境介绍：&lt;/h4&gt;
+
+&lt;p&gt;Mac OSX 10.11.1&lt;/p&gt;
+
+&lt;h4 id=&#34;步骤如下:f891efab5b1bfc4f5ede16e75d3ca708&#34;&gt;步骤如下：&lt;/h4&gt;
+
+&lt;p&gt;在github创建两个仓库 blog.hugo 和 chungwei.github.io&lt;/p&gt;
+
+&lt;p&gt;安装Hugo&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用 Hugo 创建站点&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd ~/www
+hugo new site blog.hugo &amp;amp;&amp;amp; cd blog.hugo/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;本地仓库和远程仓库关联&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git init &amp;amp;&amp;amp; git remote add origin https://github.com/chungwei/blog.hugo.git
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;创建页面&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;hugo new about.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载站点主题&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git submodule add https://github.com/dim0627/hugo_theme_beg.git themes/beg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;启动服务&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;hugo server -w --theme=beg --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;浏览器访问 &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;
+&lt;img src=&#34;http://chungwei.github.io/img/BD22C57D-5746-4CBC-AE4B-A62C87D8DD80.png&#34; alt=&#34;This is an image&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;下载站点主题&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git submodule add https://github.com/dim0627/hugo_theme_beg.git themes/beg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;下载站点主题&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git submodule add https://github.com/dim0627/hugo_theme_beg.git themes/beg
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

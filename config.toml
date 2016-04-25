@@ -1,20 +1,29 @@
 baseurl = "http://chungwei.github.io/"
 languageCode = "zh"
-title = "Life is Good"
+
+[taxonomies]
+    tag = "tags"
+    tutorial = "tutorials"
+    category = "categories"
 
 [params]
-    TableOfContents = "dddddd的哈哈哈哈哈"
+    showglobe = true
+    highlight = true
+    
+    analytics = "code-here"
 
-[[menu.main]]
+    github = "https://github.com/chungwei"
+    email = "wei.chungwei@gmail.com"
+    profilepic = "img/profile.png"
+    
+    title = "酒肉穿肠过"
+    subtitle = "　"
+    
+    [[params.navlinks]]
     name = "关于我"
-    pre = "<i class='fa fa-heart'></i>"
-    weight = 1
-    identifier = "about"
-    url = "/about/"
-
-[[menu.main]] 
-    name = "首页"
-    pre = "<i class='fa fa-road'></i>"
-    weight = 2
-    identifier = "home"
-    url = "/"
+    url = "about"
+    
+    [[params.navlinks]]
+    name = "主页"
+    url = ""
+    
