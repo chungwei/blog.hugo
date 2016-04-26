@@ -68,8 +68,7 @@ title = "简历"
 <small>
 &nbsp;-&nbsp;技术部　　　　PHP工程师  
 　*参与[考满分](http://www.kaomanfen.com)平台下多个业务线的研发，如
-[考司法网](http://www.kaosifa.com)、[考GMAT网](http://www.kaogmat.com)&nbsp;
-和&nbsp;[找题目学习网](http://www.zhaotimu.com)&nbsp;等；*
+考司法网、考GMAT网&nbsp;和&nbsp;找题目学习网&nbsp;等；*
 </small>
 
 #### 专业技能
