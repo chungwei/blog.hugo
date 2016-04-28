@@ -1,5 +1,6 @@
 baseurl = "http://chungwei.github.io/"
 languageCode = "zh"
+duoshuoShortname = "chungwei"
 
 [taxonomies]
     tag = "tags"
@@ -8,9 +9,6 @@ languageCode = "zh"
 
 [params]
     showglobe = true
-    highlight = true
-    
-    analytics = "code-here"
 
     github = "https://github.com/chungwei"
     email = "wei.chungwei@gmail.com"
@@ -26,4 +24,6 @@ languageCode = "zh"
     [[params.navlinks]]
     name = "主页"
     url = ""
-    
+
+[permalinks]
+  post = "/:year/:month/:day/:filename/" # optional

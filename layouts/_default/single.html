@@ -3,7 +3,8 @@
 
 <main>
 	<header>
-        <strong>{{ .Date.Format "Jan 02 , 2006 15:16" }}</strong>
+        <br>
+        <!-- <strong>{{ .Date.Format "Jan 02 , 2006 15:16" }}</strong> -->
 		<h1 style="margin-top: 4px;">
             {{ .Title }}
         </h1>
@@ -26,12 +27,12 @@
 </main>
 
 <div id="bottom-nav" class="text-center center-block">
-    <hr/>
 	<!-- <a href=" {{ .Site.BaseURL }}" class="btn btn-default"><i class="fa fa-home"></i> Home</a> -->
 </div>
 
 {{ if .Site.DisqusShortname }}
   {{ template "_internal/disqus.html" . }}
 {{ end }}
+
 
 {{ partial "footer.html" . }}

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tutorial on </title>
+    <link>http://chungwei.github.io/categories/tutorial/</link>
+    <description>Recent content in Tutorial on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 25 Apr 2016 13:43:49 +0800</lastBuildDate>
+    <atom:link href="http://chungwei.github.io/categories/tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>使用 Hugo Github 搭建博客</title>
+      <link>http://chungwei.github.io/2016/04/25/blog-hugo-github/</link>
+      <pubDate>Mon, 25 Apr 2016 13:43:49 +0800</pubDate>
+      
+      <guid>http://chungwei.github.io/2016/04/25/blog-hugo-github/</guid>
+      <description>
+
+&lt;p&gt;&lt;br&gt;
+本文主要介绍如何使用&lt;code&gt;Hugo&lt;/code&gt;在&lt;code&gt;Github&lt;/code&gt;搭建免费的个人博客，关于&lt;code&gt;Hugo&lt;/code&gt;
+可在其&lt;a href=&#34;https://gohugo.io&#34;&gt;官网&lt;/a&gt;上进一步了解。&lt;/p&gt;
+
+&lt;h4 id=&#34;环境介绍:f891efab5b1bfc4f5ede16e75d3ca708&#34;&gt;环境介绍：&lt;/h4&gt;
+
+&lt;p&gt;Mac OSX 10.11.1&lt;br /&gt;
+项目根路径 ~/www/&lt;/p&gt;
+
+&lt;h4 id=&#34;步骤如下:f891efab5b1bfc4f5ede16e75d3ca708&#34;&gt;步骤如下：&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;在&lt;code&gt;Github&lt;/code&gt;创建两个仓库，比如&lt;code&gt;blog.hugo&lt;/code&gt;和&lt;code&gt;chungwei.github.io&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;安装&lt;code&gt;Hugo&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;brew install hugo
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;使用&lt;code&gt;Hugo&lt;/code&gt;创建站点&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd ~/www
+hugo new site blog.hugo
+cd blog.hugo/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;本地仓库和远程仓库关联&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git init
+git remote add origin https://github.com/your-name/blog.hugo.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;创建页面&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;hugo new about.md
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;下载站点主题&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git submodule add https://github.com/dim0627/hugo_theme_beg.git themes/beg
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;启动服务&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;hugo server -w --theme=beg --buildDrafts
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;浏览器访问 &lt;a href=&#34;http://localhost:1313/&#34;&gt;http://localhost:1313/&lt;/a&gt;&lt;br /&gt;
+&lt;em&gt;&lt;small&gt;看到如下图页面，说明本地搭建博客已经没问题了。接下来就是如何挂到 &lt;code&gt;Github&lt;/code&gt;上。&lt;/small&gt;&lt;/em&gt;
+&lt;div class=&#34;row&#34;&gt;
+&lt;div class=&#34;col-sm-12 col-md-12 col-lg-12&#34;&gt;
+    &lt;img src=&#34;http://chungwei.github.io/img/demo.png&#34; style=&#34;width:100%&#34;&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;提交&lt;code&gt;blog.hugo&lt;/code&gt; 到远程仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git add -A
+git commit -m &#39;commit demo&#39;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;生成站点页面&lt;br /&gt;
+&lt;em&gt;&lt;small&gt;执行完命令，目录下会多一个 &lt;code&gt;public&lt;/code&gt; 目录，要发布到 &lt;code&gt;Github&lt;/code&gt; 的博客页面就在该目录中&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;rm -rf public
+hugo --buildDrafts -t beg
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;检出博客页面远程仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cd ~/www
+git clone https://github.com/your-name/chungwei.github.io.git
+cd chungwei.github.io/
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;复制本地博客页面到该仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;cp -R ~/www/blog.hugo/public/* .
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;提交 &lt;code&gt;chungwei.github.io&lt;/code&gt; 到远程仓库&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-shell&#34;&gt;git add -A
+git commit -m &#39;ci demo&#39;
+git push origin master
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;浏览器访问 &lt;a href=&#34;http://chungwei.github.io/&#34;&gt;http://chungwei.github.io/&lt;/a&gt;&lt;br /&gt;
+&lt;em&gt;&lt;small&gt;看到 &lt;code&gt;步骤8&lt;/code&gt;页面，说明博客搭建成功。&lt;/small&gt;&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;small&gt;可能存在这样的情况：&lt;br /&gt;
+访问 &lt;code&gt;http://chungwei.github.io 出现404&lt;/code&gt;，但访问 &lt;code&gt;http://chungwei.github.io/about&lt;/code&gt;
+是正常的，原因是仓库&lt;code&gt;chungwei.github.io缺少README.md&lt;/code&gt;，创建该文件即可解决
+&lt;/small&gt;&lt;/p&gt;
+&lt;/blockquote&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
