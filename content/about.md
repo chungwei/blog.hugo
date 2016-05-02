@@ -12,3 +12,5 @@ title = "About Me"
 
 做过`在线教育`，做`电商`给亚非拉倒卖过商品，现在做 `O2O`
 
+<img src="/img/tech.png" style="width:100%">
+

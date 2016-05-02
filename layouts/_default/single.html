@@ -34,5 +34,12 @@
   {{ template "_internal/disqus.html" . }}
 {{ end }}
 
+{{ if .Site.Params.shareFlag }}
+  {{ partial "share.html" . }}
+{{ end }}
+
+{{ if .Site.Params.duoshuoShortname }}
+  {{ partial "duoshuo.html" . }}
+{{ end }}
 
 {{ partial "footer.html" . }}

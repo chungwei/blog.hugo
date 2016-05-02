@@ -1,6 +1,5 @@
-baseurl = "http://chungwei.github.io/"
+baseurl = "http://chungwei.github.io"
 languageCode = "zh"
-duoshuoShortname = "chungwei"
 
 [taxonomies]
     tag = "tags"
@@ -9,13 +8,14 @@ duoshuoShortname = "chungwei"
 
 [params]
     showglobe = true
+    duoshuoShortname = "chungwei"
 
     github = "https://github.com/chungwei"
     email = "wei.chungwei@gmail.com"
     profilepic = "img/profile.png"
     
     title = "酒肉穿肠过"
-    subtitle = "　"
+    subtitle = "PHPer，Gopher"
     
     [[params.navlinks]]
     name = "关于我"

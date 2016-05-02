@@ -9,15 +9,18 @@ highlight = true
 +++
 
 <br>
+
 本文主要介绍如何使用`Hugo`在`Github`搭建免费的个人博客，关于`Hugo`
 可在其[官网](https://gohugo.io)上进一步了解。  
 
-#### 环境介绍：
-Mac OSX 10.11.1  
-项目根路径 ~/www/
+#### 环境介绍
+* Mac OSX 10.11.1  
+* 项目根路径 ~/www/
 
-#### 步骤如下：
-1. 在`Github`创建两个仓库，比如`blog.hugo`和`chungwei.github.io`
+---
+
+#### 搭建步骤
+1. 在`Github`创建两个仓库，比如`blog.hugo`和`chungwei.github.io`  
 
 1. 安装`Hugo`
 ```shell
@@ -53,12 +56,8 @@ hugo server -w --theme=beg --buildDrafts
 ```
 
 1. 浏览器访问 http://localhost:1313/  
-*<small>看到如下图页面，说明本地搭建博客已经没问题了。接下来就是如何挂到 `Github`上。</small>*
-<div class="row">
-    <div class="col-sm-12 col-md-12 col-lg-12">
-        <img src="/img/demo.png" style="width:100%">
-    </div>
-</div>
+看到如下图页面，说明本地搭建博客已经没问题了。接下来就是如何挂到 `Github`上。
+<img src="/img/demo.png" style="width:100%">
 
 1. 提交`blog.hugo` 到远程仓库
 ```shell
@@ -67,7 +66,7 @@ git commit -m 'commit demo'
 git push origin master
 ```
 1. 生成站点页面  
-*<small>执行完命令，目录下会多一个 `public` 目录，要发布到 `Github` 的博客页面就在该目录中</small>*
+执行完命令，目录下会多一个 `public` 目录，要发布到 `Github` 的博客页面就在该目录中
 ```shell
 rm -rf public
 hugo --buildDrafts -t beg
@@ -92,11 +91,42 @@ git commit -m 'ci demo'
 git push origin master
 ```
 1. 浏览器访问 http://chungwei.github.io/  
-*<small>看到 `步骤8`页面，说明博客搭建成功。</small>*
+看到 `步骤8`页面，说明博客搭建成功。
 
     >
-<small>可能存在这样的情况：  
+*<small>可能存在这样的情况：  
 访问 `http://chungwei.github.io 出现404`，但访问 `http://chungwei.github.io/about`
 是正常的，原因是仓库`chungwei.github.io缺少README.md`，创建该文件即可解决
-</small>
+</small>*
 
+---
+
+#### 安装插件
+
+1. **评论功能**  
+国外的有 [disqus](https://disqus.com/)，国内的有 [多说](http://duoshuo.com/)，
+因为多说支持国内第三方账号登录，下面简单说一下如何配置：
+ - 注册多说账号，按照引导一步步往下走即可；
+ - 完成后，提示将一段 js 代码引入页面；
+ - 将 js 代码放在 `layout/partials/duoshuo.html` 中；
+ - 在 `config.toml` 的 `[params]` 节点下加入配置项 `duoshuoShortname = "your-blog-name"`，
+   注意：`your-blog-name` 是在注册多说账号时填的名称；
+ - 在页面中引用 `layout/partials/duoshuo.html`
+
+        ```shell
+{{ if .Site.Params.duoshuoShortname }}
+    {{ partial "duoshuo.html" . }}
+{{ end }}
+```
+
+1. **代码高亮**  
+在文件头部设置变量 `highlight = true` 即可。
+
+    > *<small>之前尝试在 `config.toml` 文件中设置，都不生效</small>*
+
+---
+
+#### 参考资料
+
+1. [Hugo官网文档](https://gohugo.io/overview/quickstart/)
+1. [使用Hugo搭建静态站点](http://tonybai.com/2015/09/23/intro-of-gohugo/)
