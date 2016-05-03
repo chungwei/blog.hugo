@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Book on </title>
+    <link>http://chungwei.github.io/tags/book/</link>
+    <description>Recent content in Book on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 03 May 2016 11:29:00 +0800</lastBuildDate>
+    <atom:link href="http://chungwei.github.io/tags/book/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>我的书架</title>
+      <link>http://chungwei.github.io/2016/05/03/books/</link>
+      <pubDate>Tue, 03 May 2016 11:29:00 +0800</pubDate>
+      
+      <guid>http://chungwei.github.io/2016/05/03/books/</guid>
+      <description>
+
+&lt;h4 id=&#34;已阅读:dbc19c2f13d02e3f5b18602966a5728f&#34;&gt;已阅读&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;《图解HTTP》&lt;/strong&gt;&lt;br /&gt;
+图灵程序设计丛书，[日]上野 (作者)，宣 (作者)， 于均良 (译者)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;《大型网站技术架构:核心原理与案例分析》&lt;/strong&gt;&lt;br /&gt;
+李智慧 (作者)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;《程序员跳槽全攻略》&lt;/strong&gt;&lt;br /&gt;
+Easy (作者)&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;strong&gt;《Redis设计与实现》&lt;/strong&gt;&lt;br /&gt;
+数据库技术丛书，黄健宏 著 (作者)&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;想阅读:dbc19c2f13d02e3f5b18602966a5728f&#34;&gt;想阅读&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;《程序员修炼之道:从小工到专家》&lt;/strong&gt;&lt;br /&gt;
+亨特 (Andrew Hunt) (作者)， 托马斯 (David Thomas) (作者)， 马维达 (译者)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

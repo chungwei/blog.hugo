@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="使用 Hugo Github 搭建博客">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-04-25">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://chungwei.github.io/2016/04/25/blog-hugo-github/">
+    <meta property="og:site_name" content="">
+    
+    <meta property="og:tags" content="github">
+    
+    <meta property="og:tags" content="hugo">
+    
+    <meta name="generator" content="Hugo 0.15" />
+    <title>使用 Hugo Github 搭建博客 &middot; </title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+    
+    <link rel="stylesheet" href="http://chungwei.github.io/css/style.css">
+    <link href="" rel="alternate" type="application/rss+xml" title="" />
+
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://chungwei.github.io/">酒肉穿肠过</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://chungwei.github.io/about">关于我</a></li>
+				
+					<li><a href="http://chungwei.github.io/">主页</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h2 class="text-center"><a href="http://chungwei.github.io/">酒肉穿肠过</a></h2>
+		
+		
+		
+			<small class="text-center center-block">PHPer，Gopher</small>
+		
+		
+		
+			<img id="profile-pic" src="http://chungwei.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+			
+			<a href="https://github.com/chungwei"><i class="fa fa-github fa-2x"></i></a>
+			<a href="mailto:wei.chungwei@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://chungwei.github.io/about">关于我</a>
+			
+				<a href="http://chungwei.github.io/">主页</a>
+			
+		</div>
+	</div>
+</div>
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-11 col-md-11 col-lg-10">
+
+<main>
+	<header>
+        <br>
+        
+		<h1 style="margin-top: 4px;">
+            使用 Hugo Github 搭建博客
+        </h1>
+	</header>
+
+	<article>
+        
+            <small class="text-muted">
+                
+                
+                    <a href="http://chungwei.github.io/tags/github">
+                        <span class="label label-success">github</span>
+                    </a>
+                
+                    <a href="http://chungwei.github.io/tags/hugo">
+                        <span class="label label-success">hugo</span>
+                    </a>
+                
+            </small>
+        
+
+		
+
+<p><br></p>
+
+<p>本文主要介绍如何使用<code>Hugo</code>在<code>Github</code>搭建免费的个人博客，关于<code>Hugo</code>
+可在其<a href="https://gohugo.io">官网</a>上进一步了解。</p>
+
+<h4 id="环境介绍:f891efab5b1bfc4f5ede16e75d3ca708">环境介绍</h4>
+
+<ul>
+<li>Mac OSX 10.11.1<br /></li>
+<li>项目根路径 ~/www/</li>
+</ul>
+
+<hr />
+
+<h4 id="搭建步骤:f891efab5b1bfc4f5ede16e75d3ca708">搭建步骤</h4>
+
+<ol>
+<li><p>在<code>Github</code>创建两个仓库，比如<code>blog.hugo</code>和<code>chungwei.github.io</code></p></li>
+
+<li><p>安装<code>Hugo</code></p>
+
+<pre><code class="language-shell">brew install hugo
+</code></pre></li>
+
+<li><p>使用<code>Hugo</code>创建站点</p>
+
+<pre><code class="language-shell">cd ~/www
+hugo new site blog.hugo
+cd blog.hugo/
+</code></pre></li>
+
+<li><p>本地仓库和远程仓库关联</p>
+
+<pre><code>git init
+git remote add origin https://github.com/your-name/blog.hugo.git
+</code></pre></li>
+
+<li><p>创建页面</p>
+
+<pre><code class="language-shell">hugo new about.md
+</code></pre></li>
+
+<li><p>下载站点主题</p>
+
+<pre><code class="language-shell">git submodule add https://github.com/dim0627/hugo_theme_beg.git themes/beg
+</code></pre></li>
+
+<li><p>启动服务</p>
+
+<pre><code class="language-shell">hugo server -w --theme=beg --buildDrafts
+</code></pre></li>
+
+<li><p>浏览器访问 <a href="http://localhost:1313/">http://localhost:1313/</a><br />
+看到如下图页面，说明本地搭建博客已经没问题了。接下来就是如何挂到 <code>Github</code>上。
+<img src="/img/demo.png" style="width:100%"></p></li>
+
+<li><p>提交<code>blog.hugo</code> 到远程仓库</p>
+
+<pre><code class="language-shell">git add -A
+git commit -m 'commit demo'
+git push origin master
+</code></pre></li>
+
+<li><p>生成站点页面<br />
+执行完命令，目录下会多一个 <code>public</code> 目录，要发布到 <code>Github</code> 的博客页面就在该目录中</p>
+
+<pre><code class="language-shell">rm -rf public
+hugo --buildDrafts -t beg
+</code></pre></li>
+
+<li><p>检出博客页面远程仓库</p>
+
+<pre><code class="language-shell">cd ~/www
+git clone https://github.com/your-name/chungwei.github.io.git
+cd chungwei.github.io/
+</code></pre></li>
+
+<li><p>复制本地博客页面到该仓库</p>
+
+<pre><code class="language-shell">cp -R ~/www/blog.hugo/public/* .
+</code></pre></li>
+
+<li><p>提交 <code>chungwei.github.io</code> 到远程仓库</p>
+
+<pre><code class="language-shell">git add -A
+git commit -m 'ci demo'
+git push origin master
+</code></pre></li>
+
+<li><p>浏览器访问 <a href="http://chungwei.github.io/">http://chungwei.github.io/</a><br />
+看到 <code>步骤8</code>页面，说明博客搭建成功。</p>
+
+<blockquote>
+<p><em><small>可能存在这样的情况：<br />
+访问 <code>http://chungwei.github.io 出现404</code>，但访问 <code>http://chungwei.github.io/about</code>
+是正常的，原因是仓库<code>chungwei.github.io缺少README.md</code>，创建该文件即可解决
+</small></em></p>
+</blockquote></li>
+</ol>
+
+<hr />
+
+<h4 id="安装插件:f891efab5b1bfc4f5ede16e75d3ca708">安装插件</h4>
+
+<ol>
+<li><p><strong>评论功能</strong><br />
+国外的有 <a href="https://disqus.com/">disqus</a>，国内的有 <a href="http://duoshuo.com/">多说</a>，
+因为多说支持国内第三方账号登录，下面简单说一下如何配置：</p>
+
+<ul>
+<li>注册多说账号，按照引导一步步往下走即可；</li>
+<li>完成后，提示将一段 js 代码引入页面；</li>
+<li>将 js 代码放在 <code>layout/partials/duoshuo.html</code> 中；</li>
+<li>在 <code>config.toml</code> 的 <code>[params]</code> 节点下加入配置项 <code>duoshuoShortname = &quot;your-blog-name&quot;</code>，
+注意：<code>your-blog-name</code> 是在注册多说账号时填的名称；</li>
+
+<li><p>在页面中引用 <code>layout/partials/duoshuo.html</code></p>
+
+<pre><code class="language-shell">{{ if .Site.Params.duoshuoShortname }}
+{{ partial &quot;duoshuo.html&quot; . }}
+{{ end }}
+</code></pre></li>
+</ul></li>
+
+<li><p><strong>代码高亮</strong><br />
+在文件头部设置变量 <code>highlight = true</code> 即可。</p>
+
+<blockquote>
+<p><em><small>之前尝试在 <code>config.toml</code> 文件中设置，都不生效</small></em></p>
+</blockquote></li>
+</ol>
+
+<hr />
+
+<h4 id="参考资料:f891efab5b1bfc4f5ede16e75d3ca708">参考资料</h4>
+
+<ol>
+<li><a href="https://gohugo.io/overview/quickstart/">Hugo官网文档</a></li>
+<li><a href="http://tonybai.com/2015/09/23/intro-of-gohugo/">使用Hugo搭建静态站点</a></li>
+</ol>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	
+</div>
+
+
+
+
+
+
+  
+<div class="ds-thread" data-thread-key="" data-title="使用 Hugo Github 搭建博客" data-url="http://chungwei.github.io/2016/04/25/blog-hugo-github/"></div>
+
+
+
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"chungwei"};
+
+    (function() {
+     var ds = document.createElement('script');
+     ds.type = 'text/javascript';ds.async = true;
+     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+     ds.charset = 'UTF-8';
+     (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+     })();
+</script>
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  
+  <script src="http://chungwei.github.io//js/App.js"></script>
+  
+</body>
+</html>
