@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on </title>
+    <link>http://chungwei.github.io/categories/python/</link>
+    <description>Recent content in Python on </description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <lastBuildDate>Mon, 09 May 2016 11:03:27 +0800</lastBuildDate>
+    <atom:link href="http://chungwei.github.io/categories/python/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Pexpect 实现 Linux 远程登录执行命令</title>
+      <link>http://chungwei.github.io/2016/05/09/python-pexpect/</link>
+      <pubDate>Mon, 09 May 2016 11:03:27 +0800</pubDate>
+      
+      <guid>http://chungwei.github.io/2016/05/09/python-pexpect/</guid>
+      <description>
+
+&lt;h4 id=&#34;需求:20f0c714d858a84276d2ee469ac66aca&#34;&gt;需求&lt;/h4&gt;
+
+&lt;p&gt;最近接到一个小需求：检测目前在线的机器是否重装过系统。&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;small&gt;由于涉及敏感信息，具体细节不描述，只记录大概思路和代码示例&lt;/small&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h4 id=&#34;解决思路:20f0c714d858a84276d2ee469ac66aca&#34;&gt;解决思路&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;连接、登录远程机器&lt;/li&gt;
+&lt;li&gt;在远程机器执行命令&lt;/li&gt;
+&lt;li&gt;获取执行结果&lt;/li&gt;
+&lt;li&gt;处理执行结果&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;代码示例:20f0c714d858a84276d2ee469ac66aca&#34;&gt;代码示例&lt;/h4&gt;
+
+&lt;p&gt;由于对 Shell 不太熟悉，采用了 Python Pexpect 实现，代码示例如下：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import pexpect
+
+def ssh_cmd(ip, passwd, cmd):
+    ret = -1
+    try:
+        ssh = pexpect.spawn(&#39;ssh root@%s &amp;quot;%s&amp;quot;&#39; % (ip, cmd))
+        ssh.expect(&#39;password: &#39;)
+        ssh.sendline(passwd)
+        r = ssh.read()
+        print ssh.before
+        ret = 0
+    except Exception as ex:
+        print &#39;ip=&#39;,ip,&#39;,ex=&#39;,ex
+        ret = -1
+    except pexpect.TIMEOUT:
+        print &#39;ip=&#39;,ip,&#39;,TIMEOUT&#39;
+        ret = -2
+    
+    ssh.close() 
+    return ret
+
+cmds=&#39;ps -U root -u root -N | wc -l&#39;
+pwd=&#39;hhjjkkk&#39;
+try:
+    f = open(&amp;quot;./ip_list.txt&amp;quot;)
+    for line in f:
+        ip = line.strip(&#39;\n&#39;)
+        ret = ssh_cmd(ip, pwd, cmds)
+        # proc ret
+    f.close()
+except Exception as ex:
+    print ex
+    f.close()
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# article: http://ogp.me/ns/article# website: http://ogp.me/ns/website#">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta property="og:title" content="Pexpect 实现 Linux 远程登录执行命令">
+    
+    <meta property="og:type" content="article">
+    <meta property="article:published_time" content="2016-05-09">
+    
+    <meta property="og:description" content="">
+    <meta property="og:url" content="http://chungwei.github.io/2016/05/09/python-pexpect/">
+    <meta property="og:site_name" content="">
+    
+    <meta property="og:tags" content="python">
+    
+    <meta property="og:tags" content="pexpect">
+    
+    <meta name="generator" content="Hugo 0.15" />
+    <title>Pexpect 实现 Linux 远程登录执行命令 &middot; </title>
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/styles/default.min.css">
+    
+    <link rel="stylesheet" href="http://chungwei.github.io/css/style.css">
+    <link href="" rel="alternate" type="application/rss+xml" title="" />
+
+    
+    
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top visible-xs">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			
+				<a class="navbar-brand" href="http://chungwei.github.io/">酒肉穿肠过</a>
+			
+		</div>
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+				
+				
+					<li><a href="http://chungwei.github.io/about">关于我</a></li>
+				
+					<li><a href="http://chungwei.github.io/">主页</a></li>
+				
+			</ul>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid">
+	<div class="row">
+		<div id="menu" class="hidden-xs col-sm-4 col-md-3">
+	<div id="menu-content" class="vertical-align">
+		
+			<h2 class="text-center"><a href="http://chungwei.github.io/">酒肉穿肠过</a></h2>
+		
+		
+		
+			<small class="text-center center-block">PHPer，Gopher</small>
+		
+		
+		
+			<img id="profile-pic" src="http://chungwei.github.io//img/profile.png" alt="My Picture" class="img-circle center-block">
+		
+		<div id="social" class="text-center">
+			
+			
+			<a href="https://github.com/chungwei"><i class="fa fa-github fa-2x"></i></a>
+			<a href="mailto:wei.chungwei@gmail.com"><i class="fa fa-envelope-o fa-2x"></i></a>
+		</div>
+		<div id="links" class="text-center">
+			
+			
+				<a href="http://chungwei.github.io/about">关于我</a>
+			
+				<a href="http://chungwei.github.io/">主页</a>
+			
+		</div>
+	</div>
+</div>
+		<div id="content" class="col-xs-12 col-sm-8 col-md-9">
+			<div class="row">
+				<div id="post" class="col-sm-offset-1 col-sm-11 col-md-11 col-lg-10">
+
+<main>
+	<header>
+        <br>
+        
+		<h1 style="margin-top: 4px;">
+            Pexpect 实现 Linux 远程登录执行命令
+        </h1>
+	</header>
+
+	<article>
+        
+            <small class="text-muted">
+                
+                
+                    <a href="http://chungwei.github.io/tags/python">
+                        <span class="label label-success">python</span>
+                    </a>
+                
+                    <a href="http://chungwei.github.io/tags/pexpect">
+                        <span class="label label-success">pexpect</span>
+                    </a>
+                
+            </small>
+        
+
+		
+
+<h4 id="需求:20f0c714d858a84276d2ee469ac66aca">需求</h4>
+
+<p>最近接到一个小需求：检测目前在线的机器是否重装过系统。</p>
+
+<blockquote>
+<p><small>由于涉及敏感信息，具体细节不描述，只记录大概思路和代码示例</small></p>
+</blockquote>
+
+<h4 id="解决思路:20f0c714d858a84276d2ee469ac66aca">解决思路</h4>
+
+<ul>
+<li>连接、登录远程机器</li>
+<li>在远程机器执行命令</li>
+<li>获取执行结果</li>
+<li>处理执行结果</li>
+</ul>
+
+<h4 id="代码示例:20f0c714d858a84276d2ee469ac66aca">代码示例</h4>
+
+<p>由于对 Shell 不太熟悉，采用了 Python Pexpect 实现，代码示例如下：</p>
+
+<pre><code class="language-python">import pexpect
+
+def ssh_cmd(ip, passwd, cmd):
+    ret = -1
+    try:
+        ssh = pexpect.spawn('ssh root@%s &quot;%s&quot;' % (ip, cmd))
+        ssh.expect('password: ')
+        ssh.sendline(passwd)
+        r = ssh.read()
+        print ssh.before
+        ret = 0
+    except Exception as ex:
+        print 'ip=',ip,',ex=',ex
+        ret = -1
+    except pexpect.TIMEOUT:
+        print 'ip=',ip,',TIMEOUT'
+        ret = -2
+    
+    ssh.close() 
+    return ret
+
+cmds='ps -U root -u root -N | wc -l'
+pwd='hhjjkkk'
+try:
+    f = open(&quot;./ip_list.txt&quot;)
+    for line in f:
+        ip = line.strip('\n')
+        ret = ssh_cmd(ip, pwd, cmds)
+        # proc ret
+    f.close()
+except Exception as ex:
+    print ex
+    f.close()
+</code></pre>
+
+	</article>
+</main>
+
+<div id="bottom-nav" class="text-center center-block">
+	
+</div>
+
+
+
+
+
+
+  
+<div class="ds-thread" data-thread-key="" data-title="Pexpect 实现 Linux 远程登录执行命令" data-url="http://chungwei.github.io/2016/05/09/python-pexpect/"></div>
+
+
+
+<script type="text/javascript">
+    var duoshuoQuery = {short_name:"chungwei"};
+
+    (function() {
+     var ds = document.createElement('script');
+     ds.type = 'text/javascript';ds.async = true;
+     ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+     ds.charset = 'UTF-8';
+     (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+     })();
+</script>
+
+
+
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+  </div>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.5/d3.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/topojson/1.6.9/topojson.min.js"></script>
+  
+  
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.7/highlight.min.js"></script>
+  
+  <script src="http://chungwei.github.io//js/App.js"></script>
+  
+</body>
+</html>
