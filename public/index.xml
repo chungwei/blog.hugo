@@ -6,8 +6,126 @@
     <description>Recent content on </description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh</language>
-    <lastBuildDate>Mon, 09 May 2016 11:03:27 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 14 May 2016 09:10:58 +0800</lastBuildDate>
     <atom:link href="http://chungwei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Git 笔记1 —文件管理篇</title>
+      <link>http://chungwei.github.io/2016/05/14/git-file/</link>
+      <pubDate>Sat, 14 May 2016 09:10:58 +0800</pubDate>
+      
+      <guid>http://chungwei.github.io/2016/05/14/git-file/</guid>
+      <description>
+
+&lt;p&gt;关于&lt;code&gt;Git&lt;/code&gt;的介绍实在太多，Google 或 百度一下 就有，不再介绍。&lt;/p&gt;
+
+&lt;p&gt;个人接触 &lt;code&gt;Git&lt;/code&gt; 已经差不多三年，第一次使用&lt;code&gt;Git&lt;/code&gt;作为版本管理工具时，网上查查资料也能使用，但习惯了&lt;code&gt;SVN&lt;/code&gt;的客户端，
+感觉学习&lt;code&gt;Git&lt;/code&gt;的曲线很陡，很多命令总是很容易搞混或忘记，后来换工作又切回&lt;code&gt;SVN&lt;/code&gt;了。直到最近加到新的Team，完全使用&lt;code&gt;Git&lt;/code&gt;，
+经过不断请教和学习，该把成果整理归纳一下，以备今后查询。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;查看仓库状态:5f6a41538a10ee69232608c8f0309ef1&#34;&gt;查看仓库状态&lt;/h4&gt;
+
+&lt;p&gt;使用场景：提交之前，先看一下本次 修改、删除、新增 了哪些文件&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git status
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;查看变更前后的差异:5f6a41538a10ee69232608c8f0309ef1&#34;&gt;查看变更前后的差异&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;git diff [/path/to/file]  # 可指定只看某文件，删除和新增文件不会显示
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;提交文件:5f6a41538a10ee69232608c8f0309ef1&#34;&gt;提交文件&lt;/h4&gt;
+
+&lt;p&gt;使用场景：提交仓库的变更，新增和修改文件命令相同&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add /path/to/file1 [/path/to/file2...]  # 提交到本地暂存区，可同时提交多个文件
+git commit -m &#39;提交文件&#39;  # 保存暂存区的变更到当前分支
+git push origin branch-name  # 把变更文件推到当前分支对应的远程仓库
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;提交所有文件，可以使用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add -A
+git commit -m &#39;提交所有文件&#39;
+
+# 或
+git commit -am &#39;简写:提交所有文件&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;删除文件:5f6a41538a10ee69232608c8f0309ef1&#34;&gt;删除文件&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;git rm /path/to/file
+git commit -m &#39;删除文件&#39;
+git push origin branch-name
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Expect 实现 Linux 远程登录</title>
+      <link>http://chungwei.github.io/2016/05/11/shell-expect/</link>
+      <pubDate>Wed, 11 May 2016 10:49:46 +0800</pubDate>
+      
+      <guid>http://chungwei.github.io/2016/05/11/shell-expect/</guid>
+      <description>
+
+&lt;h4 id=&#34;背景:594a8c577dddc6215feb74a35737f6bb&#34;&gt;背景&lt;/h4&gt;
+
+&lt;p&gt;远程登录时工作中经常遇到的问题，之前的解决办法要么是老老实实手工输入密码，要么是两台机器建立
+信任关系，但总感觉很麻烦，特别是机器多了，实在影响效率！&lt;/p&gt;
+
+&lt;p&gt;最好的办法，是不需配置信任关系即可实现自动远程登录。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;实现:594a8c577dddc6215feb74a35737f6bb&#34;&gt;实现&lt;/h4&gt;
+
+&lt;p&gt;使用 expect 即可实现，具体实现如下&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;#!/usr/bin/expect
+
+# 设置超时时间为 3 秒
+set timeout 3
+
+# 设置要登录的主机 IP 地址
+set host 10.10.38.232
+
+# 设置以什么名字的用户登录
+set name root
+# 设置用户名的登录密码
+set password 111222333
+
+#spawn 一个 ssh 登录进程
+spawn  ssh $host -l $name
+
+# 等待响应，第一次登录往往会提示是否永久保存 RSA 到本机的 know hosts 列表中；等到回答后，在提示输出密码；之后就直接提示输入密码
+expect {
+   &amp;quot;(yes/no)?&amp;quot; {
+       send &amp;quot;yes\n&amp;quot;
+       expect &amp;quot;password:&amp;quot;
+       send &amp;quot;$pasword\n&amp;quot;
+   }
+   &amp;quot;password:&amp;quot; {
+       send &amp;quot;$password\n&amp;quot;
+   }
+}
+
+# 这里使用了 interact 命令，使执行完程序后，用户可以在 $host 终端进行交互操作。
+interact
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&#34;参考文献:594a8c577dddc6215feb74a35737f6bb&#34;&gt;参考文献&lt;/h4&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ibm.com/developerworks/cn/aix/library/0909_jinjh_unixlogin/&#34;&gt;Unix/Linux 系统自动化管理: 远程登录篇&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
     
     <item>
       <title>Pexpect 实现 Linux 远程登录执行命令</title>
@@ -25,6 +143,8 @@
 &lt;p&gt;&lt;small&gt;由于涉及敏感信息，具体细节不描述，只记录大概思路和代码示例&lt;/small&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 
+&lt;hr /&gt;
+
 &lt;h4 id=&#34;解决思路:20f0c714d858a84276d2ee469ac66aca&#34;&gt;解决思路&lt;/h4&gt;
 
 &lt;ul&gt;
@@ -33,6 +153,8 @@
 &lt;li&gt;获取执行结果&lt;/li&gt;
 &lt;li&gt;处理执行结果&lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;hr /&gt;
 
 &lt;h4 id=&#34;代码示例:20f0c714d858a84276d2ee469ac66aca&#34;&gt;代码示例&lt;/h4&gt;
 
@@ -86,50 +208,38 @@ except Exception as ex:
 &lt;h4 id=&#34;已阅读:dbc19c2f13d02e3f5b18602966a5728f&#34;&gt;已阅读&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解HTTP》&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《GitHub入门与实践》&lt;/code&gt;&lt;br /&gt;
+大塚弘记 (作者), 支鹏浩 (译者), 刘斌 (译者)&lt;br /&gt;
+图文并茂，通俗易懂，对于如何使用 Git + GitHub 进行协作开发（fork 和 GitFlow 模式）讲解很细致，
+还举了具体例子，很赞。唯一的不足，是书中的图片质量有待提高！&lt;br /&gt;
+——2016-05&lt;/p&gt;&lt;/li&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解HTTP》&lt;/code&gt;&lt;br /&gt;
 图灵程序设计丛书，[日]上野 (作者)，宣 (作者)， 于均良 (译者)&lt;br /&gt;
-图文并茂，简单通俗易懂，适合初级开发人员。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+图文并茂，简单通俗易懂，适合初级开发人员。&lt;br /&gt;
+——2016-04&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《大型网站技术架构:核心原理与案例分析》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-李智慧 (作者)&lt;br /&gt;
-结合案例分析，全面讲述了如何打造一个高性能高可用的应用，对于一些初级开发人员，可作为学习指南，按照作者提到的每一个方面去提升自我。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员跳槽全攻略》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员跳槽全攻略》&lt;/code&gt;&lt;br /&gt;
 Easy (作者)&lt;br /&gt;
-写得不错，对职业规划有很大帮助。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+写得不错，对职业规划有很大帮助。&lt;br /&gt;
+——2016-04&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《Redis设计与实现》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-数据库技术丛书，黄健宏 (作者)&lt;br /&gt;
-写得相当好，Redis 的原理都有涉及，收获相当大。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go Web编程》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go Web编程》&lt;/code&gt;&lt;br /&gt;
 谢孟军 (作者)&lt;br /&gt;
-Golang Web 开发的入门书籍，前部分讲解 Golang 基本知识，后部分讲述如何使用 Golang（Beego） 进行 Web 开发。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+Golang Web 开发的入门书籍，前部分讲解 Golang 基本知识，后部分讲述如何使用 Golang
+（Beego） 进行 Web 开发。&lt;br /&gt;
+——2015-08&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《Redis设计与实现》&lt;/code&gt;&lt;br /&gt;
+数据库技术丛书，黄健宏 (作者)&lt;br /&gt;
+写得相当好，Redis 的原理都有涉及，收获相当大。&lt;br /&gt;
+——2015-02&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《大型网站技术架构:核心原理与案例分析》&lt;/code&gt;&lt;br /&gt;
+李智慧 (作者)&lt;br /&gt;
+结合案例分析，全面讲述了如何打造一个高性能高可用的应用，对于一些初级开发人员，可作为学习指南，
+按照作者提到的每一个方面去提升自我。&lt;br /&gt;
+——2013-11&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -137,45 +247,20 @@ Golang Web 开发的入门书籍，前部分讲解 Golang 基本知识，后部�
 &lt;h4 id=&#34;想阅读:dbc19c2f13d02e3f5b18602966a5728f&#34;&gt;想阅读&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员修炼之道:从小工到专家》&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员修炼之道:从小工到专家》&lt;/code&gt;&lt;br /&gt;
+亨特 (Andrew Hunt) (作者)， 托马斯 (David Thomas) (作者)， 马维达 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-亨特 (Andrew Hunt) (作者)， 托马斯 (David Thomas) (作者)， 马维达 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《计算机是怎样跑起来的》&lt;/code&gt;&lt;br /&gt;
+矢泽久雄 (作者), 胡屹 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《计算机是怎样跑起来的》&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序是怎样跑起来的》&lt;/code&gt;&lt;br /&gt;
+[日]矢泽久雄 (作者), 李逢俊 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-矢泽久雄 (作者), 胡屹 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解TCP/IP(第5版)》&lt;/code&gt;&lt;br /&gt;
+图灵程序设计丛书，竹下隆史 (作者), 村山公保 (作者), 荒井透 (作者), 苅田幸雄 (作者), 乌尼日其其格 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序是怎样跑起来的》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-[日]矢泽久雄 (作者), 李逢俊 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解TCP/IP(第5版)》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-图灵程序设计丛书，竹下隆史 (作者), 村山公保 (作者), 荒井透 (作者), 苅田幸雄 (作者), 乌尼日其其格 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go并发编程实战》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-郝林 (作者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go并发编程实战》&lt;/code&gt;&lt;br /&gt;
+郝林 (作者)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

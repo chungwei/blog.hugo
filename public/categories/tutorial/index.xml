@@ -20,50 +20,38 @@
 &lt;h4 id=&#34;已阅读:dbc19c2f13d02e3f5b18602966a5728f&#34;&gt;已阅读&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解HTTP》&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《GitHub入门与实践》&lt;/code&gt;&lt;br /&gt;
+大塚弘记 (作者), 支鹏浩 (译者), 刘斌 (译者)&lt;br /&gt;
+图文并茂，通俗易懂，对于如何使用 Git + GitHub 进行协作开发（fork 和 GitFlow 模式）讲解很细致，
+还举了具体例子，很赞。唯一的不足，是书中的图片质量有待提高！&lt;br /&gt;
+——2016-05&lt;/p&gt;&lt;/li&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解HTTP》&lt;/code&gt;&lt;br /&gt;
 图灵程序设计丛书，[日]上野 (作者)，宣 (作者)， 于均良 (译者)&lt;br /&gt;
-图文并茂，简单通俗易懂，适合初级开发人员。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+图文并茂，简单通俗易懂，适合初级开发人员。&lt;br /&gt;
+——2016-04&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《大型网站技术架构:核心原理与案例分析》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-李智慧 (作者)&lt;br /&gt;
-结合案例分析，全面讲述了如何打造一个高性能高可用的应用，对于一些初级开发人员，可作为学习指南，按照作者提到的每一个方面去提升自我。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员跳槽全攻略》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员跳槽全攻略》&lt;/code&gt;&lt;br /&gt;
 Easy (作者)&lt;br /&gt;
-写得不错，对职业规划有很大帮助。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+写得不错，对职业规划有很大帮助。&lt;br /&gt;
+——2016-04&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《Redis设计与实现》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-数据库技术丛书，黄健宏 (作者)&lt;br /&gt;
-写得相当好，Redis 的原理都有涉及，收获相当大。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go Web编程》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go Web编程》&lt;/code&gt;&lt;br /&gt;
 谢孟军 (作者)&lt;br /&gt;
-Golang Web 开发的入门书籍，前部分讲解 Golang 基本知识，后部分讲述如何使用 Golang（Beego） 进行 Web 开发。
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+Golang Web 开发的入门书籍，前部分讲解 Golang 基本知识，后部分讲述如何使用 Golang
+（Beego） 进行 Web 开发。&lt;br /&gt;
+——2015-08&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《Redis设计与实现》&lt;/code&gt;&lt;br /&gt;
+数据库技术丛书，黄健宏 (作者)&lt;br /&gt;
+写得相当好，Redis 的原理都有涉及，收获相当大。&lt;br /&gt;
+——2015-02&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《大型网站技术架构:核心原理与案例分析》&lt;/code&gt;&lt;br /&gt;
+李智慧 (作者)&lt;br /&gt;
+结合案例分析，全面讲述了如何打造一个高性能高可用的应用，对于一些初级开发人员，可作为学习指南，
+按照作者提到的每一个方面去提升自我。&lt;br /&gt;
+——2013-11&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;hr /&gt;
@@ -71,45 +59,20 @@ Golang Web 开发的入门书籍，前部分讲解 Golang 基本知识，后部�
 &lt;h4 id=&#34;想阅读:dbc19c2f13d02e3f5b18602966a5728f&#34;&gt;想阅读&lt;/h4&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员修炼之道:从小工到专家》&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序员修炼之道:从小工到专家》&lt;/code&gt;&lt;br /&gt;
+亨特 (Andrew Hunt) (作者)， 托马斯 (David Thomas) (作者)， 马维达 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-亨特 (Andrew Hunt) (作者)， 托马斯 (David Thomas) (作者)， 马维达 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《计算机是怎样跑起来的》&lt;/code&gt;&lt;br /&gt;
+矢泽久雄 (作者), 胡屹 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《计算机是怎样跑起来的》&lt;/code&gt;&lt;/p&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序是怎样跑起来的》&lt;/code&gt;&lt;br /&gt;
+[日]矢泽久雄 (作者), 李逢俊 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-矢泽久雄 (作者), 胡屹 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解TCP/IP(第5版)》&lt;/code&gt;&lt;br /&gt;
+图灵程序设计丛书，竹下隆史 (作者), 村山公保 (作者), 荒井透 (作者), 苅田幸雄 (作者), 乌尼日其其格 (译者)&lt;/p&gt;&lt;/li&gt;
 
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《程序是怎样跑起来的》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-[日]矢泽久雄 (作者), 李逢俊 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《图解TCP/IP(第5版)》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-图灵程序设计丛书，竹下隆史 (作者), 村山公保 (作者), 荒井透 (作者), 苅田幸雄 (作者), 乌尼日其其格 (译者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go并发编程实战》&lt;/code&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-&lt;p&gt;&lt;small&gt;
-郝林 (作者)
-&lt;/small&gt;&lt;/p&gt;
-&lt;/blockquote&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;code&gt;《Go并发编程实战》&lt;/code&gt;&lt;br /&gt;
+郝林 (作者)&lt;/p&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>
