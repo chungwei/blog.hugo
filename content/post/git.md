@@ -171,16 +171,20 @@ git branch --no-merged # 查看未合并的分支
 当发生冲突时，打开冲突文件编辑，再参考 `步骤5` 提交即可
 
 1. **撤销修改**  
-在提交到暂存区之前，需撤销某个文件的修改，则使用
+在提交到暂存区之前（即`未 git add`），需撤销某个文件的修改，则使用
 ````
 git checkout -- filename
 ````
-如已经提交到暂存区，但未commit，则使用
+如已经提交到暂存区，但 `未git commit`，则使用
 ````
 git reset HEAD filename
 git checkout -- filename
 ````
-还有一种情况，就是恢复已删除的文件  
+如 `已 git commit`，则使用
+````
+git revert HEAD
+````
+还有一种情况，就是 `恢复已删除的文件`，则使用  
 ````
 rm filename # 发现误删了
 git checkout -- filename # 即可恢复
